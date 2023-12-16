@@ -2,11 +2,11 @@ const express = require('express')
 const router = express.Router()
 
 const UserController = require('../controllers/UserController')
-
-router.get('/signin', (req, res)=>{
-    res.send('<h1>SIGN IN</h1>')
-})
+const UserMiddleware = require('../middleware/UserMiddleware')
 
 router.post('/signup', UserController.signUp)
+router.post('/signin', UserController.signIn)
+
+router.get('/user', UserMiddleware.decodeToken, UserController.findUser)
 
 module.exports = router
