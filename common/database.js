@@ -1,9 +1,8 @@
 const Sequelize = require("sequelize")
 
-// Tables
-// const User = require('../models/User')
+require('dotenv').config()
 
-const sequelize = new Sequelize('cloud_dev','root','', {
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
         host: 'localhost',
         dialect: 'mysql'
     }
