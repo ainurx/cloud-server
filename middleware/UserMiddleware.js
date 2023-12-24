@@ -9,7 +9,7 @@ const decodeToken = async(req, res, next) =>{
         req.params.id = decoded.id
         next()
     } catch(err){
-        res.state(401).send('Unauthorized.')
+        res.status(401).send('Unauthorized.')
     }
 }
 
